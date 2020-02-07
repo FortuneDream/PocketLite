@@ -28,7 +28,7 @@
 .packages
 .pub-cache/
 .pub/
-.test/
+/test/
 .metadata
 /build/
 
