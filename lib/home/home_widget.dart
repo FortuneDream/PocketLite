@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:pocket_lite/home/home_body_widget.dart';
+import 'package:pocket_lite/model/ShareSong.dart';
 import 'package:pocket_lite/model/instrument.dart';
 import 'package:pocket_lite/my/my_widget.dart';
 import 'package:pocket_lite/home/switch_instrument_dialog.dart';
 
 class HomeWidget extends StatelessWidget {
   Scaffold _scaffold;
+  List<ShareSong> shareList = [];
   var instrument = Instrument(0, "吉他", "");
 
   @override
   Widget build(BuildContext context) {
+    for (int i = 0; i < 100; i++) {
+      ShareSong song = ShareSong();
+      song.name = "名字 " + i.toString();
+      shareList.add(song);
+    }
     _scaffold = Scaffold(
       appBar: AppBar(
         leading: Builder(builder: (context) {
@@ -38,7 +47,7 @@ class HomeWidget extends StatelessWidget {
           )
         ],
       ),
-      drawer: MyScreen(),
+      drawer: MyWidget(),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.search),
         onPressed: () {
@@ -46,16 +55,26 @@ class HomeWidget extends StatelessWidget {
           Fluttertoast.showToast(msg: "搜索功能");
         },
       ),
-      body: MainBodyWidget(),
+      body: HomeBody(
+        shareList,
+        itemWidgetCreator: (BuildContext context, int position) {
+          return Text(shareList[position].name);
+        },
+        headerCreator: (BuildContext context, int position) {
+          return Container(
+            height: 200,
+            child: Swiper(
+              itemCount: 3,
+              itemBuilder: (BuildContext context, int index) {
+                return Image.asset("images/splash_bg.png", fit: BoxFit.fill);
+              },
+              viewportFraction: 0.8,
+              scale: 0.9,
+            ),
+          );
+        },
+      ),
     );
     return _scaffold;
-  }
-}
-
-class MainBodyWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return Text("啦啦啦");
   }
 }

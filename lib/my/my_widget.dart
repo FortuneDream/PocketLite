@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 //我的
-class MyScreen extends Drawer {
-  MyScreen()
+class MyWidget extends Drawer {
+  MyWidget()
       : super(
             child: Drawer(
                 child: ListView(
