@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pocket_lite/home/home_body_widget.dart';
-import 'package:pocket_lite/model/ShareSong.dart';
+import 'package:pocket_lite/model/share_song.dart';
 import 'package:pocket_lite/model/instrument.dart';
 import 'package:pocket_lite/my/my_widget.dart';
 import 'package:pocket_lite/home/switch_instrument_dialog.dart';
@@ -28,6 +28,7 @@ class HomeWidget extends StatelessWidget {
               onPressed: () {
                 //进入个人drawer打开
                 Scaffold.of(context).openDrawer();
+
               });
         }),
         title: Text("口袋乐谱"),
@@ -62,7 +63,7 @@ class HomeWidget extends StatelessWidget {
         },
         headerCreator: (BuildContext context, int position) {
           return Container(
-            height: 200,
+            height: 200, //必须要固定宽度，否则因为无法测量出Swiper的高度而无法显示
             child: Swiper(
               itemCount: 3,
               itemBuilder: (BuildContext context, int index) {
