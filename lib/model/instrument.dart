@@ -1,9 +1,16 @@
-class Instrument {
-  var index = 0;
-  var typeName = "";
-  var icon = "";
+import 'package:flutter/widgets.dart';
 
-  Instrument(this.index, this.typeName, this.icon);
+class Instrument with ChangeNotifier {
+  int _index = 0;
+  String _typeName = "";
+  String _icon = "";
 
+  get index => _index;
 
+  get typeName => _typeName;
+
+  set index(int index) {
+    this._index = index;
+    notifyListeners();
+  }
 }

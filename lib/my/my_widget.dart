@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pocket_lite/model/user.dart';
+import 'package:provider/provider.dart';
 
 //我的
 class MyWidget extends Drawer {
@@ -65,10 +67,7 @@ class HeaderWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Container(
-              child: Icon(
-                Icons.people,
-                color: Colors.lightBlueAccent,
-              ),
+              child: Text("${Provider.of<User>(context).username}"),
               padding: EdgeInsets.fromLTRB(16, 0, 0, 8),
             ),
             Container(

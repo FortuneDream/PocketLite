@@ -27,7 +27,6 @@ class HomeBodyWidget extends State<HomeBody> {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemBuilder: (BuildContext context, int index) {
-        LogUtil.e(context == null);
         return buildItemWidget(context, index);
       },
       itemCount: _getListCount(),

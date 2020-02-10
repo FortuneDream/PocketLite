@@ -4,13 +4,14 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pocket_lite/home/home_body_widget.dart';
 import 'package:pocket_lite/model/share_song.dart';
 import 'package:pocket_lite/model/instrument.dart';
+import 'package:pocket_lite/model/user.dart';
 import 'package:pocket_lite/my/my_widget.dart';
 import 'package:pocket_lite/home/switch_instrument_dialog.dart';
+import 'package:provider/provider.dart';
 
 class HomeWidget extends StatelessWidget {
   Scaffold _scaffold;
   List<ShareSong> shareList = [];
-  var instrument = Instrument(0, "吉他", "");
 
   @override
   Widget build(BuildContext context) {
@@ -24,25 +25,25 @@ class HomeWidget extends StatelessWidget {
         leading: Builder(builder: (context) {
           //必须包裹一层Builder否则无法暂时
           return IconButton(
-              icon: Icon(Icons.star_border),
+              icon: CircleAvatar(
+                radius: 24,
+                backgroundColor: Colors.white30,
+                child: Image.asset("images/icon.png"),
+              ),
               onPressed: () {
                 //进入个人drawer打开
                 Scaffold.of(context).openDrawer();
-
               });
         }),
-        title: Text("口袋乐谱"),
+        title: Text("口袋Lite"),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.music_note),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return SwitchInstrumentScreen(selectIndex: instrument.index);
-              })).then((data) {
-                if (data != null) {
-                  //非空数据返回
-                  this.instrument = data;
-                }
+              showDialog<Null>(
+                  context: context,
+                  builder: (BuildContext context){
+                return SwitchInstrumentScreen();
               });
             },
           )
@@ -53,6 +54,7 @@ class HomeWidget extends StatelessWidget {
         child: Icon(Icons.search),
         onPressed: () {
           //跳转到搜索
+          Provider.of<User>(context, listen: false).setNickName("啦啦啦啦");
           Fluttertoast.showToast(msg: "搜索功能");
         },
       ),
