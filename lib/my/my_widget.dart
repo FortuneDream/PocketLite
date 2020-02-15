@@ -52,7 +52,6 @@ class MyWidget extends Drawer {
 class HeaderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return Consumer<User>(
       builder: (context, user, _) {
         return Row(
@@ -69,16 +68,39 @@ class HeaderWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Container(
-                  child: Text("${user.username}"),
-                  padding: EdgeInsets.fromLTRB(16, 0, 0, 8),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Container(
+                      width: 24,
+                      child: Icon(
+                        Icons.people,
+                        color: Colors.lightBlueAccent,
+                      ),
+                      margin: EdgeInsets.fromLTRB(8, 0, 8, 0),
+                    ),
+                    Flexible(
+                      child: Text(
+                        "${user.username}",
+                      ),
+                    ),
+                  ],
                 ),
-                Container(
-                  child: Icon(
-                    Icons.credit_card,
-                    color: Colors.amberAccent,
-                  ),
-                  padding: EdgeInsets.fromLTRB(16, 0, 0, 8),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Container(
+                      width: 24,
+                      child: Icon(
+                        Icons.credit_card,
+                        color: Colors.amberAccent,
+                      ),
+                      margin: EdgeInsets.fromLTRB(8, 0, 8, 0),
+                    ),
+                    Flexible(
+                      child: Text("${user.coin} 枚"),
+                    ),
+                  ],
                 )
               ],
             )
