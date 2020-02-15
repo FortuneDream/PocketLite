@@ -6,7 +6,7 @@ class HomeBody extends StatefulWidget {
   ItemWidgetBuild itemWidgetCreator; //接口
   HeaderWidgetBuild headerCreator;
 
-  HomeBody(List this.listData,
+  HomeBody(this.listData,
       {Key key, this.itemWidgetCreator, this.headerCreator})
       : super(key: key);
 

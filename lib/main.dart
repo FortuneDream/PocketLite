@@ -19,7 +19,7 @@ void main() {
   runApp(MultiProvider(
       providers: [
         ChangeNotifierProvider.value(value: User()),
-        ChangeNotifierProvider.value(value: Instrument())
+        ChangeNotifierProvider.value(value: new Instrument())
       ],
       child: new MaterialApp(
           theme: ThemeData(backgroundColor: Colors.white),

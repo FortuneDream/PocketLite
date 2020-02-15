@@ -14,7 +14,6 @@ class SwitchInstrumentScreen extends StatefulWidget {
 
 class _SwitchInstrumentState extends State<SwitchInstrumentScreen> {
   final _Instruments = <String>["钢琴", "吉他", "口琴"];
-  int selectIndex = 0;
 
   _SwitchInstrumentState();
 
@@ -22,22 +21,24 @@ class _SwitchInstrumentState extends State<SwitchInstrumentScreen> {
   Widget build(BuildContext context) {
     //ListTile需要被包裹在Scaffold中
     return SimpleDialog(title: new Text("选择"), children: <Widget>[
-      Expanded(
-          child: ListView.builder(
-              itemBuilder: (BuildContext context, int index) {
-                ListTile(
+      SizedBox(
+        width: 200,
+        child: ListView.builder(
+            itemBuilder: (BuildContext context, int index) {
+              return Consumer<Instrument>(builder:
+                  (BuildContext context, Instrument value, Widget child) {
+                return ListTile(
                   title: Text(_Instruments[index]),
                   onTap: () {
-                    setState(() {
-                      selectIndex = index;
-                      Provider.of<Instrument>(context, listen: false).index =
-                          selectIndex;
-                    });
+                    value.index = index;
                   },
-                  selected: selectIndex == index,
+                  selected: value.index == index,
                 );
-              },
-              itemCount: _Instruments.length))
+              });
+            },
+            shrinkWrap: true,
+            itemCount: _Instruments.length),
+      )
     ]);
   }
 }

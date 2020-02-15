@@ -5,9 +5,9 @@ class Instrument with ChangeNotifier {
   String _typeName = "";
   String _icon = "";
 
-  get index => _index;
+  int get index => _index;
 
-  get typeName => _typeName;
+  String get typeName => _typeName;
 
   set index(int index) {
     this._index = index;
