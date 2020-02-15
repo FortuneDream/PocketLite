@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:pocket_lite/home/home_widget.dart';
+import 'package:pocket_lite/model/instrument.dart';
 import 'package:provider/provider.dart';
 
 import 'model/user.dart';
@@ -24,6 +25,7 @@ class _SplashState extends State<StatefulWidget> {
     super.initState();
     //固定登录
     Provider.of<User>(context,listen: false).initLocalUser();
+    Provider.of<Instrument>(context,listen: false).initInstrument();
     _Timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         _Seconds--;

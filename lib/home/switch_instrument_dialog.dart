@@ -1,6 +1,10 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:pocket_lite/constant.dart';
 import 'package:pocket_lite/model/instrument.dart';
+import 'package:pocket_lite/sp_util.dart';
 import 'package:provider/provider.dart';
 
 class SwitchInstrumentScreen extends StatelessWidget {
@@ -11,7 +15,7 @@ class SwitchInstrumentScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SimpleDialog(
-        title: new Text(
+        title: Text(
           "乐器选择",
           style: TextStyle(color: Colors.blue),
         ),
@@ -26,6 +30,10 @@ class SwitchInstrumentScreen extends StatelessWidget {
                       title: Text(_Instruments[index]),
                       onTap: () {
                         instrument.index = index;
+                        HashMap<String, String> map = HashMap();
+                        map[Constant.INSTRUMENT_INDEX] =
+                            index.toString(); //持久化保存
+                        SpUtil.set(map);
                         Navigator.of(context).pop(); //弹窗消失也用Navigator的pop方式
                       },
                       selected: instrument.index == index,
