@@ -25,14 +25,13 @@ class _SwitchInstrumentState extends State<SwitchInstrumentScreen> {
         width: 200,
         child: ListView.builder(
             itemBuilder: (BuildContext context, int index) {
-              return Consumer<Instrument>(builder:
-                  (BuildContext context, Instrument value, Widget child) {
+              return Consumer<Instrument>(builder: (context, instrument, _) {
                 return ListTile(
                   title: Text(_Instruments[index]),
                   onTap: () {
-                    value.index = index;
+                    instrument.index = index;
                   },
-                  selected: value.index == index,
+                  selected: instrument.index == index,
                 );
               });
             },

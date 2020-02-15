@@ -1,3 +1,4 @@
+
 import 'package:data_plugin/bmob/bmob.dart';
 import 'package:data_plugin/bmob/bmob_utils.dart';
 import 'package:data_plugin/bmob/response/bmob_registered.dart';
@@ -14,12 +15,10 @@ import 'model/user.dart';
 void main() {
   Bmob.initMasterKey("c156f624906eb0246ed20417f2aaf1e0",
       "fa1de8cffc4723568a5821673c6cec62", "eea25467bab8ea7467f57ba9a13ad9c6");
-  //固定登录
-  User.loginUser("812568684@qq.com", "123456");
   runApp(MultiProvider(
       providers: [
         ChangeNotifierProvider.value(value: User()),
-        ChangeNotifierProvider.value(value: new Instrument())
+        ChangeNotifierProvider.value(value: Instrument())
       ],
       child: new MaterialApp(
           theme: ThemeData(backgroundColor: Colors.white),

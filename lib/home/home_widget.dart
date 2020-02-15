@@ -54,7 +54,6 @@ class HomeWidget extends StatelessWidget {
         child: Icon(Icons.search),
         onPressed: () {
           //跳转到搜索
-          Provider.of<User>(context, listen: false).setNickName("啦啦啦啦");
           Fluttertoast.showToast(msg: "搜索功能");
         },
       ),

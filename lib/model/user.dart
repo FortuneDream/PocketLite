@@ -6,57 +6,49 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 //Bmob没有提供本地的User操作，所以自己写一份
 class User extends BmobUser with ChangeNotifier {
-  String _nickName = "";
   int _coin = 0;
 
-  static User localUser;
-
   String _header;
-
-  get nickName => _nickName;
-
-  set nickName(String nickName) => {_nickName = nickName};
 
   get coin => _coin;
 
   get header => _header;
 
   //注册
-  static void registerUser(String username, String password, String nickName) {
+  static void registerUser(String username, String password) {
     User user = User();
     user.username = username;
     user.password = password;
-    user.nickName = nickName;
     user.register().then((BmobRegistered data) {});
   }
 
-  static void loginUser(String username, String password) {
-    User user = User();
-    user.username = username;
-    user.password = password;
-    user.login().then((BmobUser bmobUser) {
-      _getLocalUser().then((User user) {
-        localUser = user;
+  Future<User> loginUser(String username, String password) {
+    this.password = password;
+    this.username = username;
+    login().then((BmobUser user) {
+      Future<SharedPreferences> prefs = SharedPreferences.getInstance();
+      prefs.then((SharedPreferences value) {
+        value.setString("username", user.username);
+        value.setString("password", user.password);
+        notifyListeners();
       });
     });
   }
 
-  //登录
-  static Future<User> _getLocalUser() async {
+  //如果没有登录就直接登录，登录了就用本地缓存的
+  Future<User> initLocalUser() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String username = prefs.get("username");
     String password = prefs.get("password");
-    String nickname = prefs.get("nickname");
-    User user = User();
-    user.username = username;
-    user.password = password;
-    user.nickName = nickname;
-    await user;
-  }
-
-  setNickName(String nickName) {
-    this._nickName = nickName;
-    notifyListeners();
+    if (username == null) {
+      //本地没有，就直接登录
+      loginUser("812568684@qq.com", "123456");
+    } else {
+      this.username = username;
+      this.password = password;
+      notifyListeners();
+    }
+    await this;
   }
 
   addCoin() {

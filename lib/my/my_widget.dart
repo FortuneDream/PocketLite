@@ -52,34 +52,39 @@ class MyWidget extends Drawer {
 class HeaderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        Container(
-          child: Icon(
-            Icons.star,
-            color: Colors.red,
-            size: 80,
-          ),
-          margin: EdgeInsets.fromLTRB(8, 0, 0, 8),
-        ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
+
+    return Consumer<User>(
+      builder: (context, user, _) {
+        return Row(
           children: <Widget>[
             Container(
-              child: Text("${Provider.of<User>(context).username}"),
-              padding: EdgeInsets.fromLTRB(16, 0, 0, 8),
-            ),
-            Container(
               child: Icon(
-                Icons.credit_card,
-                color: Colors.amberAccent,
+                Icons.star,
+                color: Colors.red,
+                size: 80,
               ),
-              padding: EdgeInsets.fromLTRB(16, 0, 0, 8),
+              margin: EdgeInsets.fromLTRB(8, 0, 0, 8),
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  child: Text("${user.username}"),
+                  padding: EdgeInsets.fromLTRB(16, 0, 0, 8),
+                ),
+                Container(
+                  child: Icon(
+                    Icons.credit_card,
+                    color: Colors.amberAccent,
+                  ),
+                  padding: EdgeInsets.fromLTRB(16, 0, 0, 8),
+                )
+              ],
             )
           ],
-        )
-      ],
+        );
+      },
     );
   }
 }

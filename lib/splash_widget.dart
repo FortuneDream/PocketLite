@@ -3,6 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:pocket_lite/home/home_widget.dart';
+import 'package:provider/provider.dart';
+
+import 'model/user.dart';
 
 class SplashWidget extends StatefulWidget {
   @override
@@ -19,6 +22,8 @@ class _SplashState extends State<StatefulWidget> {
   @override
   void initState() {
     super.initState();
+    //固定登录
+    Provider.of<User>(context,listen: false).initLocalUser();
     _Timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         _Seconds--;
