@@ -1,13 +1,11 @@
-import 'dart:math';
-
 import 'package:flutter/widgets.dart';
 import 'package:pocket_lite/constant.dart';
 import 'package:pocket_lite/sp_util.dart';
 
 class Instrument with ChangeNotifier {
   int _index = 0;
+
   String _typeName = "";
-  String _icon = "";
 
   int get index => _index;
 

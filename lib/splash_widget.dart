@@ -24,8 +24,8 @@ class _SplashState extends State<StatefulWidget> {
   void initState() {
     super.initState();
     //固定登录
-    Provider.of<User>(context,listen: false).initLocalUser();
-    Provider.of<Instrument>(context,listen: false).initInstrument();
+    Provider.of<MyUser>(context, listen: false).initLocalUser();
+    Provider.of<Instrument>(context, listen: false).initInstrument();
     _Timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         _Seconds--;
@@ -33,7 +33,7 @@ class _SplashState extends State<StatefulWidget> {
           _Timer.cancel();
           Navigator.pushAndRemoveUntil(context,
               MaterialPageRoute(builder: (context) {
-            return  HomeWidget();
+            return HomeWidget();
           }), (route) => route == null);
         }
       });
@@ -42,7 +42,6 @@ class _SplashState extends State<StatefulWidget> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(title: Text("口袋乐谱")),

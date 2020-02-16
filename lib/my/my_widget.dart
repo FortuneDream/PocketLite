@@ -52,7 +52,7 @@ class MyWidget extends Drawer {
 class HeaderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Consumer<User>(
+    return Consumer<MyUser>(
       builder: (context, user, _) {
         return Row(
           children: <Widget>[

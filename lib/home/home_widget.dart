@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pocket_lite/home/home_body_widget.dart';
-import 'package:pocket_lite/model/share_song.dart';
-import 'package:pocket_lite/model/instrument.dart';
-import 'package:pocket_lite/model/user.dart';
-import 'package:pocket_lite/my/my_widget.dart';
 import 'package:pocket_lite/home/switch_instrument_dialog.dart';
+import 'package:pocket_lite/model/instrument.dart';
+import 'package:pocket_lite/model/share.dart';
+import 'package:pocket_lite/my/my_widget.dart';
+import 'package:pocket_lite/provide/ListDataProvider.dart';
 import 'package:provider/provider.dart';
 
 class HomeWidget extends StatelessWidget {
@@ -42,9 +42,9 @@ class HomeWidget extends StatelessWidget {
             onPressed: () {
               showDialog<Null>(
                   context: context,
-                  builder: (BuildContext context){
-                return SwitchInstrumentScreen();
-              });
+                  builder: (BuildContext context) {
+                    return SwitchInstrumentScreen();
+                  });
             },
           )
         ],
@@ -54,6 +54,7 @@ class HomeWidget extends StatelessWidget {
         child: Icon(Icons.search),
         onPressed: () {
           //跳转到搜索
+          ListDataProvider.getAllShareList(Provider.of<Instrument>(context,listen: false));
           Fluttertoast.showToast(msg: "搜索功能");
         },
       ),

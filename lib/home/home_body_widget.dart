@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:pocket_lite/log_util.dart';
 
 class HomeBody extends StatefulWidget {
   List listData;
   ItemWidgetBuild itemWidgetCreator; //接口
   HeaderWidgetBuild headerCreator;
 
-  HomeBody(this.listData,
-      {Key key, this.itemWidgetCreator, this.headerCreator})
+  HomeBody(this.listData, {Key key, this.itemWidgetCreator, this.headerCreator})
       : super(key: key);
 
   @override
