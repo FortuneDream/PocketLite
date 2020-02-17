@@ -9,7 +9,7 @@ class ShareSong extends BmobObject {
   int agreeNum; //分享数量
   int downloadNum; //下载量
   int collectionNum; //收藏量
-  int instrument; //所属月
+  int instrument; //所属乐器
 
   @override
   Map getParams() {

@@ -16,7 +16,7 @@ void main() {
         ChangeNotifierProvider.value(value: MyUser()),
         ChangeNotifierProvider.value(value: Instrument())
       ],
-      child: new MaterialApp(
-          theme: ThemeData(backgroundColor: Colors.white),
+      child: MaterialApp(
+          theme: ThemeData(backgroundColor: Colors.white,primaryColor: Colors.greenAccent),
           home: SplashWidget())));
 }
