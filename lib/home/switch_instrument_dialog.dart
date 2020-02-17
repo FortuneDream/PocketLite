@@ -17,7 +17,7 @@ class SwitchInstrumentScreen extends StatelessWidget {
     return SimpleDialog(
         title: Text(
           "乐器选择",
-          style: TextStyle(color: Colors.blue),
+          style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),
         ),
         children: <Widget>[
           SizedBox(
@@ -27,7 +27,7 @@ class SwitchInstrumentScreen extends StatelessWidget {
                   return Consumer<Instrument>(
                       builder: (context, instrument, _) {
                     return ListTile(
-                      title: Text(_Instruments[index]),
+                      subtitle: Text(_Instruments[index]),
                       onTap: () {
                         instrument.index = index;
                         HashMap<String, String> map = HashMap();

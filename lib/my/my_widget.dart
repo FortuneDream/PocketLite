@@ -56,13 +56,12 @@ class HeaderWidget extends StatelessWidget {
       builder: (context, user, _) {
         return Row(
           children: <Widget>[
-            Container(
+            ClipOval(
               child: Icon(
                 Icons.star,
                 color: Colors.red,
                 size: 80,
               ),
-              margin: EdgeInsets.fromLTRB(8, 0, 0, 8),
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
