@@ -1,16 +1,18 @@
-# pocket_lite
+### 口袋乐谱Lite版
 
-口袋乐谱Lite版
+#### 一款用于查看乐谱的工具
 
-## Getting Started
+-  《口袋乐谱》App的延续，新开发的一款App。
+-  去掉一些多余的与社交相关的功能，快速开发，快速上线。
+-  Flutter技术开发，iOS与Android双平台支持。
 
-This project is a starting point for a Flutter application.
+#### 为什么我要开发相似的内容的两个App
+- 新技术尝鲜：学习技术最好的方式把技术用于实践。
+- 定一个小目标：有一个目标去做一件事情会让生活充满活力。
+- ~~小米手机坏掉了，买了iPhone~~
 
-A few resources to get you started if this is your first Flutter project:
+#### 相关技术
+- 状态管理：Provider
+- 后台数据库：Bmob
+- UI轮子：Swiper
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
