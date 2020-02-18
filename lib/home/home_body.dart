@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 
 class HomeBody extends StatefulWidget {
   List listData;
+  int listSize; //可以有多个Header
   ItemWidgetBuild itemWidgetCreator; //接口
   HeaderWidgetBuild headerCreator;
 
-  HomeBody(this.listData, {Key key, this.itemWidgetCreator, this.headerCreator})
+  HomeBody(this.listData, this.listSize,
+      {Key key, this.itemWidgetCreator, this.headerCreator})
       : super(key: key);
 
   @override
@@ -37,7 +39,8 @@ class HomeBodyWidget extends State<HomeBody> {
   }
 
   int getHeaderCount() {
-    int headerCount = widget.headerCreator == null ? 0 : 1;
+    int headerCount =
+        widget.headerCreator == null ? 0 : widget.listSize;
     return headerCount;
   }
 
