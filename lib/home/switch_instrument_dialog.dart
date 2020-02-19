@@ -19,8 +19,8 @@ class SwitchInstrumentScreen extends StatelessWidget {
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
         children: <Widget>[
-          SizedBox(
-            width: 200,
+         Container(
+           height: 200,
             child: ListView.builder(
                 itemBuilder: (BuildContext context, int index) {
                   return Consumer<Instrument>(
@@ -44,7 +44,7 @@ class SwitchInstrumentScreen extends StatelessWidget {
                 shrinkWrap: true,
                 itemCount: ListDataProvider.Instruments.length),
           )
-        ]);
+        ],shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(20)));
     ;
   }
 }

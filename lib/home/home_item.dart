@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pocket_lite/detail/detail_widget.dart';
 import 'package:pocket_lite/model/share.dart';
 
 class HomeItem extends StatelessWidget {
@@ -13,15 +14,15 @@ class HomeItem extends StatelessWidget {
     return ListTile(
       contentPadding: EdgeInsets.fromLTRB(16, 0, 0, 0),
       leading: SizedBox(
-        child: Center(
           child: Text("${index}",
-              style: TextStyle(fontSize: 20, color: Colors.grey)),
-        ),
-        width: 16,
-        height: 16,
-      ),
+              style: TextStyle(fontSize: 20, color: Colors.grey))),
       title: Text(song.name),
       subtitle: Text("副标题"),
+      onTap: (){
+        Navigator.of(context).push(MaterialPageRoute(builder: (context){
+          return DetailWidget(song);
+        },));
+      },
     );
   }
 }

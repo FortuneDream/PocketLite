@@ -44,29 +44,27 @@ class _SplashState extends State<StatefulWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(title: Text("口袋乐谱")),
       body: Stack(
         children: <Widget>[
           Image.asset("images/splash_bg.png", fit: BoxFit.cover),
-          Container(
-              child: Text(
-            _Seconds.toString() + "秒之后即将打开app",
-            style: TextStyle(color: Colors.red),
-          ))
+          Align(
+              child: Container(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Container(
+                child: Text(
+                  "${_Seconds}秒之后即将打开App",
+                  style: TextStyle(fontSize: 12),
+                ),
+                color: Colors.black12,
+                padding: EdgeInsets.fromLTRB(8, 3, 8, 3),
+              ),
+            ),
+            alignment: Alignment.topRight,
+            margin: EdgeInsets.fromLTRB(0, 24, 16, 0),
+          )),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          isClickedFastEnter = true;
-          Navigator.pushAndRemoveUntil(context,
-              MaterialPageRoute(builder: (context) {
-            return HomeWidget();
-          }), (route) => route == null);
-        },
-        child: Icon(Icons.arrow_forward, color: Colors.lightBlueAccent),
-        backgroundColor: Colors.white12,
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 
