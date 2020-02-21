@@ -28,7 +28,7 @@ dependencies:
 
   flutter_swiper : ^1.1.5
 
-  data_plugin: ^0.0.9
+  data_plugin: ^0.0.14
 
   provider:  ^4.0.3
 

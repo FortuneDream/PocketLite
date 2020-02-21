@@ -4,8 +4,8 @@ import 'package:pocket_lite/detail/detail_widget.dart';
 import 'package:pocket_lite/model/share.dart';
 
 class HomeItem extends StatelessWidget {
-  ShareSong song;
-  int index;
+  final ShareSong song;
+  final int index;
 
   HomeItem(this.song, this.index);
 

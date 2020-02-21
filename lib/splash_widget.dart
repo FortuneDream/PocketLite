@@ -18,7 +18,7 @@ class SplashWidget extends StatefulWidget {
 class _SplashState extends State<StatefulWidget> {
   Timer _Timer;
   bool isClickedFastEnter = false;
-  int _Seconds = 2; //n秒后自动进入，或者点击了左下角的按钮也可以直接进入
+  int _Seconds = 1; //n秒后自动进入，或者点击了左下角的按钮也可以直接进入
 
   @override
   void initState() {
