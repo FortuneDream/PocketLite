@@ -24,20 +24,5 @@ class HomeTitle extends AppBar {
               Scaffold.of(context).openDrawer();
             });
       }),
-      title: Text("口袋Lite"),
-      actions: <Widget>[
-        IconButton(
-          icon: Icon(
-            Icons.music_note,
-            color: Colors.white,
-          ),
-          onPressed: () {
-            showDialog<Null>(
-                context: context,
-                builder: (BuildContext context) {
-                  return SwitchInstrumentScreen();
-                });
-          },
-        )
-      ]);
+      title: Text("口袋Lite"));
 }

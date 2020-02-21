@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:pocket_lite/model/share.dart';
 
 class HomeBody extends StatefulWidget {
-  List listData;
+  List<ShareSong> listData;
   int listSize; //可以有多个Header
   ItemWidgetBuild itemWidgetCreator; //接口
   HeaderWidgetBuild headerCreator;

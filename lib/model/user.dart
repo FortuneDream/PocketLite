@@ -3,30 +3,39 @@ import 'package:data_plugin/bmob/table/bmob_user.dart';
 import 'package:data_plugin/bmob/type/bmob_relation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:json_annotation/json_annotation.dart';
+
+part 'user.g.dart';
 
 //Bmob没有提供本地的User操作，所以自己写一份
+@JsonSerializable()
 class MyUser extends BmobUser with ChangeNotifier {
-  String _header;
+  //不能是私有的
+  String header;
 
-  String _lastSignInDate; //最后一次签到时间
+  String lastSignInDate; //最后一次签到时间
 
-  int _contribution; //硬币
+  int contribution; //硬币
 
-  BmobRelation _collections; //某个用户收藏的所有曲谱
+  BmobRelation collections; //某个用户收藏的所有曲谱
 
-  String _versionFlag; //版本
+  String versionFlag; //版本
 
-  String get lastSignInDate => _lastSignInDate;
+  int get coin=>contribution;
 
-  int get coin => _contribution;
 
-  String get version => _versionFlag;
 
-  String get header => _header;
+  MyUser(this.header, this.lastSignInDate, this.contribution, this.versionFlag)
+      : super();
+
+  factory MyUser.fromJson(Map<String, dynamic> json) =>
+      _$MyUserFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MyUserToJson(this);
 
   //注册
   static void registerUser(String username, String password) {
-    MyUser user = MyUser();
+    MyUser user = MyUser("", "", 0, "1.0");
     user.username = username;
     user.password = password;
     user.register().then((BmobRegistered data) {});
@@ -59,10 +68,5 @@ class MyUser extends BmobUser with ChangeNotifier {
       notifyListeners();
     }
     await this;
-  }
-
-  addCoin() {
-    this._contribution++;
-    notifyListeners();
   }
 }

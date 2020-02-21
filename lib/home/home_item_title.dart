@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pocket_lite/home/switch_instrument_dialog.dart';
 import 'package:pocket_lite/model/instrument.dart';
 import 'package:provider/provider.dart';
 
@@ -15,7 +16,17 @@ class ItemTitle extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(20),
             child: Container(
-              child: Text(Provider.of<Instrument>(context).typeName,style: TextStyle(fontSize: 12),),
+              child: InkWell(
+                child: Text(Provider.of<Instrument>(context).typeName,
+                    style: TextStyle(fontSize: 12)),
+                onTap: () {
+                  showDialog<Null>(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return SwitchInstrumentScreen();
+                      });
+                },
+              ),
               color: Colors.black12,
               padding: EdgeInsets.fromLTRB(8, 3, 8, 3),
             ),

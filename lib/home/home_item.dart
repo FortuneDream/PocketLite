@@ -16,12 +16,47 @@ class HomeItem extends StatelessWidget {
       leading: SizedBox(
           child: Text("${index}",
               style: TextStyle(fontSize: 20, color: Colors.grey))),
-      title: Text(song.name),
-      subtitle: Text("副标题"),
-      onTap: (){
-        Navigator.of(context).push(MaterialPageRoute(builder: (context){
-          return DetailWidget(song);
-        },));
+      title: Text(song.name, style: TextStyle(fontSize: 14)),
+      subtitle: Text(
+        song.content,
+        style: TextStyle(fontSize: 12),
+      ),
+      trailing: Container(
+        alignment: Alignment.centerRight,
+        width: 100,
+        margin: EdgeInsets.fromLTRB(0, 0, 8, 0),
+        child: Row(children: <Widget>[
+          Icon(
+            Icons.share,
+            color: Colors.greenAccent,
+            size: 20,
+          ),
+          Text(
+            song.agreeNum.toString(),
+            style: TextStyle(color: Colors.black12),
+          ),
+          Icon(
+            Icons.file_download,
+            color: Colors.greenAccent,
+            size: 20,
+          ),
+          Text(song.downloadNum.toString(),
+              style: TextStyle(color: Colors.black12)),
+          Icon(
+            Icons.collections,
+            color: Colors.greenAccent,
+            size: 20,
+          ),
+          Text(song.collectionNum.toString(),
+              style: TextStyle(color: Colors.black12))
+        ]),
+      ),
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) {
+            return DetailWidget(song);
+          },
+        ));
       },
     );
   }

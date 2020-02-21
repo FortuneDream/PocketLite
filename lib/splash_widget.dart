@@ -25,7 +25,8 @@ class _SplashState extends State<StatefulWidget> {
     super.initState();
     //固定登录
     Provider.of<MyUser>(context, listen: false).initLocalUser();
-    Provider.of<Instrument>(context, listen: false).initInstrument();
+    Provider.of<Instrument>(context, listen: false).initInstrument(context);
+
     _Timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         _Seconds--;
