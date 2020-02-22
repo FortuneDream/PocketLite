@@ -54,6 +54,6 @@ Map<String, dynamic> _$SharePicToJson(SharePic instance) => <String, dynamic>{
       'updatedAt': instance.updatedAt,
       'objectId': instance.objectId,
       'ACL': instance.ACL,
-      'shareSong': instance.shareSong,
+      'shareSong': instance.shareSong?.toJson(),
       'url': instance.url
     };

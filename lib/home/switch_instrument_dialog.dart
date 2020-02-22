@@ -28,8 +28,7 @@ class SwitchInstrumentScreen extends StatelessWidget {
                   return ListTile(
                     subtitle: Text(ListDataProvider.Instruments[index]),
                     onTap: () {
-                      Instrument instrument =
-                      Provider.of<Instrument>(context, listen: false);
+                      Instrument instrument = Provider.of<Instrument>(context, listen: false);
                       ListDataProvider.getAllShareList(instrument.index,
                               (List<ShareSong> list) {
                             if (list == null) {

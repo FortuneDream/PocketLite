@@ -39,7 +39,7 @@ class ShareSong extends BmobObject {
   Map<String, dynamic> toJson() => _$ShareSongToJson(this);
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class SharePic extends BmobObject {
   ShareSong shareSong;
   String url;

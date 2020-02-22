@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pocket_lite/detail/detail_widget.dart';
 import 'package:pocket_lite/model/share.dart';
+import 'package:pocket_lite/provide/ListDataProvider.dart';
 
 class HomeItem extends StatelessWidget {
   final ShareSong song;
@@ -52,11 +53,18 @@ class HomeItem extends StatelessWidget {
         ]),
       ),
       onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) {
-            return DetailWidget(song);
-          },
-        ));
+        ListDataProvider.getSharePicList(song, (data) {
+          List<String> result = List<String>();
+          data.forEach((sharePic) {
+            print(sharePic.url);
+            result.add(sharePic.url);
+          });
+          Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) {
+              return DetailWidget(result, 0);
+            },
+          ));
+        });
       },
     );
   }

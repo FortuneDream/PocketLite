@@ -38,6 +38,9 @@ dependencies:
 
   shared_preferences: ^0.5.6
 
+  flutter_drag_scale:
+    git: https://github.com/LiuC520/flutter_drag_scale.git
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
