@@ -16,3 +16,12 @@
 - 后台数据库：Bmob
 - UI轮子：Swiper
 
+#### 界面展示
+![image](https://github.com/FortuneDream/PocketLite/blob/master/splash_display.png)
+
+![image](https://github.com/FortuneDream/PocketLite/blob/master/home_display.png)
+
+![image](https://github.com/FortuneDream/PocketLite/blob/master/drawer_display.png)
+
+![image](https://github.com/FortuneDream/PocketLite/blob/master/dialog_display.png)
+
