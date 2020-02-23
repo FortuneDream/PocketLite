@@ -1,13 +1,19 @@
 import 'dart:math';
 
 import 'package:data_plugin/bmob/bmob_query.dart';
+import 'package:data_plugin/bmob/type/bmob_relation.dart';
+import 'package:pocket_lite/model/collection.dart';
 import 'package:pocket_lite/model/instrument.dart';
 import 'package:pocket_lite/model/share.dart';
+import 'package:pocket_lite/model/user.dart';
 import 'dart:convert';
+
+import 'package:provider/provider.dart';
 
 //回调函数
 typedef ShareSongListCallback = void Function(List<ShareSong> list);
 typedef SharePicListCallback = void Function(List<SharePic> list);
+typedef CollectionListCallback = void Function(List<CollectionSong> list);
 
 class ListDataProvider {
   static final Instruments = <String>[

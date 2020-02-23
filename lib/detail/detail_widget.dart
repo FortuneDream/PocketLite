@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_drag_scale/core/drag_scale_widget.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:pocket_lite/model/share.dart';
 
 class DetailWidget extends StatelessWidget {
   List<String> urls; //来自网络的url
@@ -11,15 +11,21 @@ class DetailWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Swiper(
-        itemBuilder: (context, index) {
-          return DragScaleContainer(
-            doubleTapStillScale: true,
-            child: Image.network(urls[index]),
-          );
-        },
-        itemCount: urls.length,
-        autoplay: false,
-        loop: false);
+    return Container(
+        color: Colors.white70,
+        child: Swiper(
+            itemBuilder: (context, index) {
+              return DragScaleContainer(
+                  doubleTapStillScale: true,
+                  child: FadeInImage.assetNetwork(
+                      placeholder: "images/loading_bg.png",
+                      image: urls[index]));
+            },
+            itemCount: urls.length,
+            autoplay: false,
+            loop: false,
+            pagination: SwiperPagination(
+              margin: EdgeInsets.all(5.0),
+            )));
   }
 }

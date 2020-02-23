@@ -10,12 +10,10 @@ class HomeSwiper extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
       child: Swiper(
-        itemCount: 3,
+        itemCount: 2,
         itemBuilder: (BuildContext context, int index) {
           if (index == 0) {
             return Image.asset("images/banner_1.webp", fit: BoxFit.fill);
-          } else if (index == 1) {
-            return Image.asset("images/banner_2.webp", fit: BoxFit.fill);
           } else {
             return Image.asset("images/banner_3.webp", fit: BoxFit.fill);
           }

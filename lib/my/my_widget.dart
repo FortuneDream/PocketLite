@@ -16,27 +16,6 @@ class MyWidget extends Drawer {
               decoration: BoxDecoration(color: Colors.white),
             ),
             ListTile(
-              leading: Icon(Icons.local_library, color: Colors.amberAccent),
-              title: Text("本地曲谱"),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.star_border,
-                color: Colors.greenAccent,
-              ),
-              title: Text("我的收藏"),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.feedback,
-                color: Colors.blueAccent,
-              ),
-              title: Text("反馈帮助"),
-              onTap: () {},
-            ),
-            ListTile(
               leading: Icon(
                 Icons.exit_to_app,
                 color: Colors.purpleAccent,
@@ -58,8 +37,8 @@ class HeaderWidget extends StatelessWidget {
           children: <Widget>[
             ClipOval(
               child: Icon(
-                Icons.star,
-                color: Colors.red,
+                Icons.account_circle,
+                color: Colors.green,
                 size: 80,
               ),
             ),
@@ -73,8 +52,8 @@ class HeaderWidget extends StatelessWidget {
                     Container(
                       width: 24,
                       child: Icon(
-                        Icons.people,
-                        color: Colors.lightBlueAccent,
+                        Icons.insert_emoticon,
+                        color: Colors.greenAccent,
                       ),
                       margin: EdgeInsets.fromLTRB(8, 0, 8, 0),
                     ),
@@ -91,8 +70,8 @@ class HeaderWidget extends StatelessWidget {
                     Container(
                       width: 24,
                       child: Icon(
-                        Icons.credit_card,
-                        color: Colors.amberAccent,
+                        Icons.music_note,
+                        color: Colors.greenAccent,
                       ),
                       margin: EdgeInsets.fromLTRB(8, 0, 8, 0),
                     ),

@@ -23,7 +23,6 @@ class HomeWidget extends StatelessWidget {
           backgroundColor: Colors.white,
           child: Icon(Icons.search, color: Colors.greenAccent),
           onPressed: () {
-            //跳转到搜索
             Fluttertoast.showToast(msg: "搜索功能");
           },
         ),
